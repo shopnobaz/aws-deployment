@@ -27,7 +27,7 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT }}          
 
       - name: Deploy from dev 
-        run: ssh dev 'cd main_deploy/aws-deploy/ && git fetch && git pull origin main && npm install'
+        run: ssh dev 'cd main_deploy/aws-deployment/ && git fetch && git pull origin main && npm install'
 
       - name: Restart app 
         run: ssh dev 'pm2 restart main-project'        
