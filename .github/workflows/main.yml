@@ -1,10 +1,9 @@
-name: Deploy dev
-on: 
+name: Deploy main
   push:
-    branches: [dev]
+    branches: [main]
 jobs:
   deploy:
-    name: "Deploy dev to dev"
+    name: "Deploy main to main"
     runs-on: ubuntu-latest
     steps:
       - name: Configure SSH
@@ -26,8 +25,8 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}          
 
-      - name: Deploy from dev  
-        run: ssh dev 'cd dev_deploy/aws-deployment && git fetch && git pull origin dev && npm install'
+      - name: Deploy from dev 
+        run: ssh dev 'cd main_deploy/aws-deploy/ && git fetch && git pull origin main && npm install'
 
       - name: Restart app 
-        run: ssh dev 'pm2 restart dev-project'        
+        run: ssh dev 'pm2 restart main-project'        
