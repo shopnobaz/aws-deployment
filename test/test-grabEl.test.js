@@ -8,7 +8,7 @@ describe('Test grabEl', () => {
 
     let content = grabEl('header').innerHTML.trim();
 
-    expect(content).toBe('<h1>Dev grocery shop</h1>');
+    expect(content).toBe('<h1>Main grocery shop</h1>');
 
   });
 
